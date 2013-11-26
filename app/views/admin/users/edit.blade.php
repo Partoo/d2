@@ -27,7 +27,7 @@
             </ul>
             {{Form::open(array('class'=>'form-horizontal'))}}
             <div class="tab-content ">
-                <div id="general" class="tab-pane fade in active offset3">
+                <div id="general" class="tab-pane active offset3">
                     <!-- 用户姓名 -->
                     <div class="control-group {{ $errors->has('username') ? 'error' : '' }}">
                         <label for="username" class="control-label"><i class="icon-user"></i>  用户姓名</label>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <!-- 权限TAB -->
-                <div id="permissions" class="tab-pane fade">
+                <div id="permissions" class="tab-pane ">
                  <div class="controls">
 
                     <div class="control-group">
@@ -148,7 +148,7 @@
                 </div>
             </div>
             <!-- 安全管理TAB -->
-            <div id="safety" class="tab-pane fade">
+            <div id="safety" class="tab-pane">
                 <div class="controls">
                     <div class="control-group">
                         <fieldset>
@@ -180,6 +180,9 @@
 </div>
 </div>
 
+@section('myjs')
+<script src="{{asset('js/bs-tab-cookie.js')}}"></script>
 
+@stop
 
 @stop

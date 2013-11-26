@@ -26,7 +26,7 @@
       </ul>
       {{Form::open(array('class'=>'form-horizontal'))}}
       <div class="tab-content ">
-        <div id="general" class="tab-pane fade in active">
+        <div id="general" class="tab-pane active">
           <!-- 用户姓名 -->
           <div class="control-group offset3 {{ $errors->has('name') ? 'error' : '' }}">
             <label for="name" class="control-label"><i class="icon-sitemap"></i>  部门名称</label>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <div id="users" class="tab-pane fade">
+        <div id="users" class="tab-pane ">
 
           <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="dataTable" width="100%">
             <thead>
@@ -89,6 +89,8 @@
 <script type="text/javascript" src="{{asset('assets/data-tables/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/data-tables/DT_bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/bootbox/bootbox.min.js')}}"></script>
+
+<script src="{{asset('js/bs-tab-cookie.js')}}"></script>
 <script>
 $(document).ready(function() {
 

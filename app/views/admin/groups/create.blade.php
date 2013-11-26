@@ -26,7 +26,7 @@
             </ul>
             {{Form::open(array('class'=>'form-horizontal'))}}
             <div class="tab-content ">
-                <div id="general" class="tab-pane fade in active">
+                <div id="general" class="tab-pane  active">
                     <!-- 用户姓名 -->
                     <div class="control-group offset3 {{ $errors->has('name') ? 'error' : '' }}">
                         <label for="name" class="control-label"><i class="icon-sitemap"></i>  群组名称</label>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="permissions" class="tab-pane fade">
+                <div id="permissions" class="tab-pane ">
                  <div class="controls">
                     <div class="control-group">
                         @foreach ($permissions as $area => $permissions)
@@ -87,7 +87,7 @@
 </div>
 
 @section('myjs')
-<!-- <script type="text/javascript" src="{{asset('assets/uniform/jquery.uniform.min.js')}}"></script> -->
+<script src="{{asset('js/bs-tab-cookie.js')}}"></script>
 
 @stop
 
