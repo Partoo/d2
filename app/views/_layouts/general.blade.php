@@ -28,9 +28,6 @@
     @yield('mycss')
 </head>
 <body>
-        <!--[if lt IE 9]>
-            <p class="chromeframe">您正在使用<strong>被淘汰的</strong>浏览器。请<a href="http://browsehappy.com/">升级</a> 以获得安全与完美的浏览体验。</p>
-            <![endif]-->
 
             <!-- BEGIN Navbar -->
             <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
