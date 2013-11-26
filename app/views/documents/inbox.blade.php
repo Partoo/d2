@@ -6,6 +6,9 @@
 @section('pageTitle')
 <i class="icon-inbox"></i>  收件箱
 @stop
+@section('breadcrumb')
+     {{ Breadcrumbs::render('inbox') }}
+@stop
 @section('content')
 <div class="row-fluid">
     <div class="span12">

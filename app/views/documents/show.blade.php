@@ -8,23 +8,9 @@
 @section('breadcrumb')
 <!-- BEGIN PAGE TITLE & BREADCRUMB-->
 <h3 class="page-title">
- 公文详情
+<i class="icon-list-ul"></i> 公文详情
 </h3>
-<ul class="breadcrumb">
- <li>
-   <a href="#">系统首页</a>
-   <span class="divider">/</span>
- </li>
- <li>
-   <a href="#">公文管理</a>
-   <span class="divider">/</span>
- </li>
-
- <li class="active">
-   公文详情
- </li>
-
-</ul>
+{{ Breadcrumbs::render('show_doc',$data->id) }}
 <!-- END PAGE TITLE & BREADCRUMB-->
 @stop
 

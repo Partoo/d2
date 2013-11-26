@@ -6,6 +6,9 @@
 @section('pageTitle')
 <i class="icon-file-text"></i>  公文管理
 @stop
+@section('breadcrumb')
+     {{ Breadcrumbs::render('document') }}
+@stop
 @section('content')
 
 <div class="row-fluid">

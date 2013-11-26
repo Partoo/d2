@@ -6,6 +6,9 @@
 @section('pageTitle')
 <i class=" icon-upload-alt"></i>  发件箱
 @stop
+@section('breadcrumb')
+     {{ Breadcrumbs::render('outbox') }}
+@stop
 @section('content')
 <div class="row-fluid">
     <div class="span12">

@@ -6,22 +6,27 @@ Breadcrumbs::register('home', function($breadcrumbs) {
 
 Breadcrumbs::register('document', function($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('公文管理', route('home.documents.index'));
+    $breadcrumbs->push('公文管理', route('documents'));
 });
 
-Breadcrumbs::register('document.inbox', function($breadcrumbs) {
-    $breadcrumbs->parent('home.documents');
-    $breadcrumbs->push('公文管理', route('inbox'));
-});
-
-Breadcrumbs::register('document.create', function($breadcrumbs) {
+Breadcrumbs::register('inbox', function($breadcrumbs) {
     $breadcrumbs->parent('document');
-    $breadcrumbs->push('创建公文', route('home.documents.create'));
+    $breadcrumbs->push('我的收件箱', route('inbox'));
 });
 
-Breadcrumbs::register('document.show', function($breadcrumbs,$document) {
+Breadcrumbs::register('outbox', function($breadcrumbs) {
     $breadcrumbs->parent('document');
-    $breadcrumbs->push('公文详情', route('home.documents.show',$document->id));
+    $breadcrumbs->push('我的发件箱', route('outbox'));
+});
+
+Breadcrumbs::register('create_doc', function($breadcrumbs) {
+    $breadcrumbs->parent('document');
+    $breadcrumbs->push('创建公文', url('home/documents/create'));
+});
+
+Breadcrumbs::register('show_doc', function($breadcrumbs,$id) {
+    $breadcrumbs->parent('document');
+    $breadcrumbs->push('公文详情', url('home/documents/show',$id));
 });
 //TODO: https://github.com/davejamesmiller/laravel-breadcrumbs/issues/18
 Breadcrumbs::register('account', function($breadcrumbs) {
@@ -36,7 +41,7 @@ Breadcrumbs::register('page', function($breadcrumbs, $page) {
 
 Breadcrumbs::register('admin', function($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('管理', route('users'));
+    $breadcrumbs->push('管理页面', route('users'));
 });
 
 Breadcrumbs::register('admin.users', function($breadcrumbs) {

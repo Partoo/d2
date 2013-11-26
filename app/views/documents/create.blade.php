@@ -9,6 +9,9 @@
 @section('pageTitle')
 <i class="icon-file-alt"></i>  新建公文
 @stop
+@section('breadcrumb')
+     {{ Breadcrumbs::render('create_doc') }}
+@stop
 @section('content')
 
 
