@@ -62,6 +62,9 @@
 <script type="text/javascript" src="{{asset('assets/data-tables/DT_bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/bootbox/bootbox.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/bootstrap-tags-input/bootstrap-tagsinput.min.js')}}"></script>
+
+<script src="{{asset('js/bs-tab-cookie.js')}}"></script>
+
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
 

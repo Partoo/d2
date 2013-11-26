@@ -22,11 +22,11 @@
         <div>
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#general">常用管理</a></li>
-                <li class=""><a data-toggle="tab" href="#permissions">权限分配</a></li>
+                <li><a data-toggle="tab" href="#permissions">权限分配</a></li>
             </ul>
             {{Form::open(array('class'=>'form-horizontal'))}}
             <div class="tab-content ">
-                <div id="general" class="tab-pane fade in active">
+                <div id="general" class="tab-pane active">
                     <!-- 用户姓名 -->
                     <div class="control-group offset3 {{ $errors->has('username') ? 'error' : '' }}">
                         <label for="username" class="control-label"><i class="icon-user"></i>  用户姓名</label>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="permissions" class="tab-pane fade">
+                <div id="permissions" class="tab-pane ">
                  <div class="controls">
 
                     <div class="control-group">
@@ -160,7 +160,7 @@
 </div>
 
 @section('myjs')
-<!-- <script type="text/javascript" src="{{asset('assets/uniform/jquery.uniform.min.js')}}"></script> -->
+<script src="{{asset('js/bs-tab-cookie.js')}}"></script>
 
 @stop
 

@@ -73,6 +73,9 @@
 </div>
 </div>
 
+@section('myjs')
+<script src="{{asset('js/bs-tab-cookie.js')}}"></script>
+@stop
 
 
 @stop

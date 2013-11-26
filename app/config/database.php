@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'iStar2',
+			'database'  => 'iStar',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'a1s2d3',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
