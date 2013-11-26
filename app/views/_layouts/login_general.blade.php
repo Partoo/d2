@@ -46,7 +46,7 @@
 <script>
         jQuery(document).ready(function($) {
                 var num = Math.floor(Math.random()*10+6);
-                        jQuery.backstretch("{{asset('img/demo')}}"+'/'+num+".jpg");
+                        jQuery.backstretch("{{asset('img/bg')}}"+'/'+num+".jpg");
                         $(':checkbox').click(function() {
                             $('#remember-tip').slideToggle();
                         });
