@@ -33,9 +33,13 @@
           @foreach ($data->comments as $comment)
           <hr>
           <!-- BEGIN REPLY SECTION -->
+          <?php
+          $user = User::find($comment->author->id);
+          $profile = $user->profile;
+          ?>
           <div class="media-body">
            <a href="#" class="pull-left">
-             <img alt="" src="" class="media-object">
+             <img alt="" style="width:45px;height:45px" src={{$profile==NULL ? asset('img/avatar/noimg.gif') : asset(Profile::find($profile)->avatar)}} class="media-object">
            </a>
            <h4 class="media-heading">{{$comment->author->username}}</h4>
            <span>{{$comment->created_at->diffForHumans()}}</span>

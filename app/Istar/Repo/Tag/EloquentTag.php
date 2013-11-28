@@ -16,9 +16,10 @@ class EloquentTag  implements ITag {
         $this->tag = $tag;
     }
 
-    public function findTag(array $tags)
+    public function findTag($tag)
     {
-       //TODO
+       $foundTag = $this->tag->document->where('id','=',1);
+       return $foundTag;
     }
 
     public function findOrCreate(array $tags)

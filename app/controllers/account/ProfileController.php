@@ -75,6 +75,10 @@ class ProfileController extends \BaseController {
 		{
 			$file = Input::file('avatar');
 			$destinationPath = 'img/avatar/'.$id.'/';
+			if(!file_exists($destinationPath))
+			{
+			     shell_exec("mkdir -p $destinationPath");
+			}
 			$filename = date('YmdHis').rand(100,999).'.'.$file->getClientOriginalExtension();
 			$filepath = $destinationPath.$filename;
 			\Image::make($file->getRealPath())->resize(154,154)->save($filepath);

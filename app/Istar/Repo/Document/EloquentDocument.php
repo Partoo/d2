@@ -38,10 +38,7 @@ class EloquentDocument implements IDocument {
 
   public function getByTag($tag)
   {
-    //TODO
-   // $tags = explode($tag, ',');
-   // $results = $this->tag->findTag($tags);
-   //  return $results;
+    return $this->tag->findTag($tag);
   }
 
   public function getAllAudit()
