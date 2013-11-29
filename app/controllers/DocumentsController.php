@@ -352,7 +352,8 @@ class DocumentsController extends BaseController {
 		{
 			$data = $this->document->getById($id);
 			$flows = $data->docflows()->get();
-			return View::make('documents.docflow',compact('flows'));
+			$docid = $id;
+			return View::make('documents.docflow',compact('flows','docid'));
 		}
 
 	/**

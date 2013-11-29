@@ -48,3 +48,8 @@ Breadcrumbs::register('admin.users', function($breadcrumbs) {
         $breadcrumbs->parent('admin');
        $breadcrumbs->push('管理用户', route('users'));
 });
+
+Breadcrumbs::register('docflow', function($breadcrumbs,$id) {
+        $breadcrumbs->parent('document');
+       $breadcrumbs->push('公文跟踪', url('documents/showTimeLine/',$id));
+});

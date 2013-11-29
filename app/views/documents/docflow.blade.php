@@ -5,21 +5,7 @@
 <h3 class="page-title">
  公文详情
 </h3>
-<ul class="breadcrumb">
- <li>
-   <a href="#">系统首页</a>
-   <span class="divider">/</span>
- </li>
- <li>
-   <a href="#">公文管理</a>
-   <span class="divider">/</span>
- </li>
-
- <li class="active">
-   公文详情
- </li>
-
-</ul>
+{{ Breadcrumbs::render('docflow',$docid) }}
 <!-- END PAGE TITLE & BREADCRUMB-->
 @stop
 
