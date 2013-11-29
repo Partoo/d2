@@ -320,7 +320,7 @@ public function getAuditboxRelate($doc_id,$uid)
     }
     elseif (\Input::has('doc_cancel')) {
       $doc->state = 2;
-      $this->syncEvent($doc,1,$user,$event_comment);
+      $this->syncEvent($doc,2,$user,$event_comment);
       $msg = "您的公文被审批退回";
       $doc->save();
       $doc->users()->where('user_id','=',$from)->update(array('document_user.state'=>2));

@@ -24,7 +24,7 @@
                                 <!--BEGIN METRO STATES-->
                                 <div class="metro-nav">
                                     <div class="metro-nav-block nav-block-orange">
-                                        <a data-original-title="" href="#">
+                                        <a data-original-title="" href="{{route('profile')}}">
                                             <i class="icon-user"></i>
                                             <div class="info">@foreach($user->getGroups() as $group) {{$group->name}}@endforeach</div>
                                             <div class="status">您的身份</div>
@@ -32,13 +32,13 @@
                                     </div>
                                     <div class="metro-nav-block nav-block-blue">
                                         @if(Sentry::getUser()->hasAnyAccess(['leader']))
-                                        <a data-original-title="" href="#">
+                                        <a data-original-title="" href="{{route('audit')}}">
                                             <i class="icon-check"></i>
                                             <div class="info">{{$newAuditCount}}</div>
                                             <div class="status">需审批公文</div>
                                         </a>
                                             @else
-                                        <a data-original-title="" href="#">
+                                        <a data-original-title="" href="{{route('audit')}}">
                                             <i class="icon-sitemap"></i>
                                             <div class="info">@foreach($user->getUnits() as $unit) {{$unit->name}}@endforeach</div>
                                             <div class="status">所在部门</div>

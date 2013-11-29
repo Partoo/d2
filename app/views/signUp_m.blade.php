@@ -1,6 +1,8 @@
 @extends('_layouts.login_general')
 <!-- get config file to check signup status -->
-@if( Config::get('site.signup_enable'))
+@if( Setting::get('site.signEnabled'))
+@section('content')
+
 <?php $key = md5(Session::get('mcode'))?>
 @section('content')
 <div class="login-container">
@@ -146,12 +148,11 @@ $(document).ready(function(){
 </script>
 @stop
 
-@stop
+    @stop
 
-<!-- START SIGNUP_DISABALED -->
-@else
-@section('content')
-@include('_layouts.signup_disabled')
-@stop
-
+            <!-- START SIGNUP_DISABALED -->
+        @else
+        @section('content')
+            @include('_layouts.signup_disabled')
+        @stop
 @endif

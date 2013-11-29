@@ -31,7 +31,7 @@
                <i class=" icon-edit"></i>
                <p class="info">{{$data->comments->count()}}条签收记录</p>
              </a>
-             <a href="{{url('home/documents/showTimeLine', $data->id) }}" class="blog-features comments">
+             <a href="{{url('home/documents/showTimeLine', $data->id) }}" data-fancybox-type="iframe" class="blog-features comments various">
                <i class=" icon-screenshot"></i>
                <p class="info">公文跟踪</p>
              </a>
