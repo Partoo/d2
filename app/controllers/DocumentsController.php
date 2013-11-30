@@ -169,6 +169,7 @@ class DocumentsController extends BaseController {
 		 //获取document_user表中当前用户对该文的状态 0：未读 1：已批阅 2：已签收
 		$state = $this->document->getState($id);
 		 $showButtons = 'none'; //用来控制show.blade中出现的按钮,0:none,-1:拟办状态,显示修改按钮,0:待批状态,显示审核按钮,1:待批状态,普通用户显示耐心等待,2:审批通过,显示转发按钮,3:签发状态,显示办结,3:
+
 		 switch ($state) {
 		 	case '-1':
 		 	if ($uid==$data->sender_id) {

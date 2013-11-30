@@ -68,6 +68,10 @@ Route::group(array('prefix' => 'home'), function()
  Route::get('documents/done/{id}',array('before'=>'senderOnly','as'=>'done','uses'=>'DocumentsController@done'));
  Route::post('documents/done/{id}','DocumentsController@handleDone');
 
+ //搜索
+ //按tag搜索
+ Route::get('documents/search/tag/{id}', 'DocumentsController@searchByTag');
+
 });
 
 

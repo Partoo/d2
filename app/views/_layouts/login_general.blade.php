@@ -24,7 +24,7 @@
         <!--page specific css styles-->
         {{stylesheet()}}
         <style type="text/css">
-      body {padding-top: 0;}
+      body {padding-top: 0;background-color: #333}
       #remember-tip{display: none}
 </style>
         <script src="{{asset('assets/modernizr/modernizr-2.6.2.min.js')}}"></script>
