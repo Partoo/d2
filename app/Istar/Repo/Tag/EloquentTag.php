@@ -16,16 +16,6 @@ class EloquentTag  implements ITag {
         $this->tag = $tag;
     }
 
-    /**
-     * 根据tag_id返回所有相关documents
-     * @param  [type] $tag_id
-     * @return [object]         [description]
-     */
-    public function findTags($tag_id)
-    {
-       $foundTag = $this->tag->with('documents')->where('id','=',$tag_id)->get();
-       return $foundTag;
-    }
 
     public function findOrCreate(array $tags)
     {

@@ -13,6 +13,10 @@ class Document extends Eloquent {
     {
         return $this->belongsToMany('Tag', 'document_tag', 'document_id', 'tag_id');
     }
+    public function categories()
+    {
+        return $this->belongsTo('Category');
+    }
     public function docflows()
     {
         return $this->hasMany('Docflow','document_id');

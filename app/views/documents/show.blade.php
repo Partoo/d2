@@ -44,7 +44,8 @@
              </h2>
              <div class="subtitle">
                <p>
-                 {{$data->docnumber}} <br /><a href="javascript:;">{{\Sentry::findUserById($data->sender_id)->username}}</a>    签发于{{$data->created_at}}
+                 公文字号:{{$data->docnumber}} <br />{{\Sentry::findUserById($data->sender_id)->username}}    签发于{{$data->created_at}}
+                 <br />
                </p>
              </div>
              <p>{{$data->content}}</p>
@@ -63,6 +64,7 @@
                 <!-- <li> <a href="#"><i class="icon-paper-clip"></i> <span>附件一</span></a></li> -->
               </ul>
               @endif
+
             </div>
 
 
@@ -112,8 +114,8 @@
  <h2> <i class=" icon-tasks"></i> 公文分类</h2>
  <ul class="unstyled tag">
 
-  @foreach(Config::get('site_const')['category'] as $key =>$cat)
-  <li><a href="search/{{$key}}">{{$cat}}</a></li>
+  @foreach(Category::all() as $cat)
+  <li><a href="search/{{$cat->id}}">{{$cat->category}}</a></li>
   @endforeach
 </ul>
 </div>

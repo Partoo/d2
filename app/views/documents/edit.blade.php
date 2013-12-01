@@ -45,7 +45,7 @@
                             <div class="controls controls-row">
                                 <select class="span12" name="category">
                                     @foreach($category as $item)
-                                    <option value="{{$item}}">{{$item}}</option>
+                                    <option value="{{$item->id}}" @if($data->category==$item->id) selected @endif>{{$item->category}}</option>
                                     @endforeach
                                 </select>
                             </div>

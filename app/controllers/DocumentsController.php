@@ -101,18 +101,32 @@ class DocumentsController extends BaseController {
 		->make();
 	}
 
+	/**
+	 * 按照给定tag id 返回公文
+	 * @param  [type] $tag_id [description]
+	 * @return [type]         [description]
+	 */
 	public function searchByTag($tag_id)
 	{
-		$data = $this->document->getByTag($tag_id);
-		return View::make('documents.search',compact('data'));
+		$data = $this->document->getByTag($tag_id)->documents()->paginate(10);
+		$tag = Tag::find($tag_id)->tag;
+		$tags = Tag::paginate(50);
+		return View::make('documents.search',compact('data','tag','tags'));
 	}
 
-	public function api_searchByTag($tag_id)
+	/**
+	 * 按照给定cat_id 返回公文
+	 * @param  [type] $cat_id [description]
+	 * @return [type]         [description]
+	 */
+	public function searchByCategory($cat_id)
 	{
-
-		return \Datatables::of($data)
-		->make();
+		$data = $this->document->getByCategory($cat_id)->documents()->paginate(10);
+		$category = Category::find($cat_id)->category;
+		$categories = Category::paginate(50);
+		return View::make('documents.search',compact('data','category','categories'));
 	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -124,7 +138,7 @@ class DocumentsController extends BaseController {
 		$users = Sentry::findAllUsersWithAccess('leader');
 		$seclevel =  Config::get('site_const.seclevel');
 		$priority = Config::get('site_const.priority');
-		$category = Config::get('site_const.category');
+		$category = Category::all();
 		$creDept = Config::get('site_const.creDept');
 		$commonSentence = Config::get('site_const.commonSentence');
 		$input = Session::getOldInput();
@@ -380,7 +394,7 @@ class DocumentsController extends BaseController {
 		$users = Sentry::findAllUsersWithAccess('leader');
 		$seclevel =  Config::get('site_const.seclevel');
 		$priority = Config::get('site_const.priority');
-		$category = Config::get('site_const.category');
+		$category = Category::all();
 		$creDept = Config::get('site_const.creDept');
 		$commonSentence = Config::get('site_const.commonSentence');
 		$data = $this->document->getById($id);

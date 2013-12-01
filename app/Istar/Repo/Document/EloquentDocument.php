@@ -38,7 +38,12 @@ class EloquentDocument implements IDocument {
 
   public function getByTag($id)
   {
-    return \Tag::find($id);
+    return \Tag::findOrFail($id);
+  }
+
+  public function getByCategory($id)
+  {
+    return \Category::findOrFail($id);
   }
 
   public function getAllAudit()

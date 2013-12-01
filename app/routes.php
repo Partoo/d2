@@ -72,6 +72,8 @@ Route::group(array('prefix' => 'home'), function()
  //按tag搜索
  Route::get('documents/search/tag/{id}', 'DocumentsController@searchByTag');
 
+//按category搜索
+ Route::get('documents/search/category/{id}', 'DocumentsController@searchByCategory');
 });
 
 

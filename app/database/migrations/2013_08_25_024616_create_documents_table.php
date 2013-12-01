@@ -18,7 +18,7 @@ class CreateDocumentsTable extends Migration {
 			$table->string('docnumber',45)->unique();//公文编号
 			$table->tinyInteger('seclevel')->default(0);//密级
 			$table->tinyInteger('priority')->default(0);//紧急程度
-			$table->string('category');//分类
+			$table->integer('category')->unsigned();//分类
 			$table->integer('sender_id')->unsigned();//发送者
 			$table->text('creDep');//创建单位 逗号分隔
 			$table->text('helpDep');//协办单位 逗号分隔
