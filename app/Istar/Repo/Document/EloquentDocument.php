@@ -38,7 +38,7 @@ class EloquentDocument implements IDocument {
 
   public function getByTag($id)
   {
-    return $this->tag->findTags($id);
+    return \Tag::find($id);
   }
 
   public function getAllAudit()

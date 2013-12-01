@@ -103,7 +103,7 @@
    <h2> <i class=" icon-tags"></i> 本文关键字</h2>
    <ul class="unstyled tag">
     @foreach($tags as $tag)
-    <li><a href="{{$tag->id}}">{{$tag->tag}}</a></li>
+    <li><a href="{{url('home/documents/search/tag',$tag->id)}}" target="_blank">{{$tag->tag}}</a></li>
     @endforeach
   </ul>
 </div>

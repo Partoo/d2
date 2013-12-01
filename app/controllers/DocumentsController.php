@@ -101,7 +101,18 @@ class DocumentsController extends BaseController {
 		->make();
 	}
 
+	public function searchByTag($tag_id)
+	{
+		$data = $this->document->getByTag($tag_id);
+		return View::make('documents.search',compact('data'));
+	}
 
+	public function api_searchByTag($tag_id)
+	{
+
+		return \Datatables::of($data)
+		->make();
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *
