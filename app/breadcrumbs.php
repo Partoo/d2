@@ -28,6 +28,13 @@ Breadcrumbs::register('show_doc', function($breadcrumbs,$id) {
     $breadcrumbs->parent('document');
     $breadcrumbs->push('公文详情', url('home/documents/show',$id));
 });
+
+Breadcrumbs::register('searchByTag', function($breadcrumbs) {
+    $breadcrumbs->parent('document');
+    $breadcrumbs->push('公文搜索', url('home/documents/search/tag'));
+});
+
+
 //TODO: https://github.com/davejamesmiller/laravel-breadcrumbs/issues/18
 Breadcrumbs::register('account', function($breadcrumbs) {
     $breadcrumbs->parent('home');

@@ -19,7 +19,9 @@ class DocsController extends \BaseController {
 	{
 		$seclevel = implode(',', \Setting::get('site_const.seclevel'));
 		$priority = implode(',', \Setting::get('site_const.priority'));
-		$category = implode(',', \Setting::get('site_const.category'));
+		$catLists = \Category::lists('category');
+		$category = implode(',',$catLists);
+		// die(var_dump($category));
 		$creDept = implode(',', \Setting::get('site_const.creDept'));
 		return View::make('admin.docs.index',compact('seclevel','priority','category','creDept'));
 	}

@@ -31,7 +31,7 @@
                <i class=" icon-edit"></i>
                <p class="info">{{$data->comments->count()}}条签收记录</p>
              </a>
-             <a href="{{url('home/documents/showTimeLine', $data->id) }}" data-fancybox-type="iframe" class="blog-features comments various">
+             <a href="{{url('home/documents/showTimeLine', $data->id) }}" target="_blank" class="blog-features comments">
                <i class=" icon-screenshot"></i>
                <p class="info">公文跟踪</p>
              </a>
@@ -115,7 +115,7 @@
  <ul class="unstyled tag">
 
   @foreach(Category::all() as $cat)
-  <li><a href="search/{{$cat->id}}">{{$cat->category}}</a></li>
+  <li><a href="{{url('home/documents/search/category',$cat->id)}}">{{$cat->category}}</a></li>
   @endforeach
 </ul>
 </div>
@@ -149,10 +149,13 @@
 @section('myjs')
 <script src="{{asset('assets/fancybox/jquery.fancybox.pack.js')}}"></script>
 <script src="{{asset('assets/chosen-bootstrap/chosen.jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery-addText.js')}}"></script>
 <script>
   $(document).ready(function() {
 
+  // Add select-chozen-byGroup
   $(".chzn-select").chosen({allow_select_group:true});
+  //Add fancyBox
   $(".various").fancybox({
     maxWidth  : 800,
     maxHeight : 600,
@@ -164,6 +167,33 @@
     openEffect  : 'none',
     closeEffect : 'none'
   });
+
+  //Add audit helper
+  if ($('#helper').length>0) {
+      $('#btn_helper').click(function(e) {
+        e.preventDefault();
+        $('#helper').slideToggle('400');
+      });
+
+      $('#helper a').click(function (e) {
+        e.preventDefault();
+        $('#comment').focus();
+        $('#comment').insertAtCursor($(this).text());
+      });
+      $('#insertUsers').click(function (e) {
+        e.preventDefault();
+        $('#comment').focus();
+        $('#comment').insertAtCursor($('.widget-body select').val());
+        if ($('#comment').createTextRange) {
+            var r = $('#comment').createTextRange();
+             r.collapse(false);
+             r.select();
+        }
+        $('#comment').focus();
+      });
+
+  };
+
 });
 </script>
 @stop

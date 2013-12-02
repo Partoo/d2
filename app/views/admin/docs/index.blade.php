@@ -1,6 +1,9 @@
 @extends('_layouts.general')
 @section('mycss')
 <link rel="stylesheet" href="{{asset('assets/bootstrap-tags-input/bootstrap-tagsinput.css')}}" type="text/css" media="screen" />
+<style>
+   .bootstrap-tagsinput {font-size: 14px !important}
+</style>
 @stop
 @section('pageTitle')
 <i class="icon-archive"></i>  公文管理
@@ -45,7 +48,7 @@
           </div>
         </div>
         <div class="tab-pane" id="settings">
-          <input type="text" value="{{$seclevel}}" data-role="tagsinput" placeholder="Add tags" />
+          <input type="text" value="{{$category}}" data-role="tagsinput"  />
         </div>
       </div>
 

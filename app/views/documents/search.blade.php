@@ -36,7 +36,7 @@ function showState($code)
 <i class=" icon-upload-alt"></i>  Search
 @stop
 @section('breadcrumb')
-{{ Breadcrumbs::render('outbox') }}
+{{ Breadcrumbs::render('searchByTag') }}
 @stop
 
 @if(Request::segment(4)=="tag")
