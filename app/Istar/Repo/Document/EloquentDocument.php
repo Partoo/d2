@@ -175,7 +175,7 @@ public function getAuditboxRelate($doc_id,$uid)
     //同步messages message_user 表,调用同步方法
     $this->syncMessages($data['message'],$data['sender_id'],$arrTo);
     //发送短信
-    // $this->sendSms($arrTo,1);
+    $this->sendSms($arrTo,1);
 
     //给docflow表写入comment(该字段功能不同于comments表，后者仅为签收记录)
     if (\Input::get('message')=='') {
@@ -224,7 +224,7 @@ public function getAuditboxRelate($doc_id,$uid)
         $this->syncMessages($data['message'],$data['sender_id'],$arrTo);
 
       //发送短信
-      // $this->sendSms($arrTo,1);
+      $this->sendSms($arrTo,1);
 
     //给docflow表写入comment(该字段功能不同于comments表，后者仅为签收记录)
     if (\Input::get('message')=='') {
@@ -341,7 +341,7 @@ public function getAuditboxRelate($doc_id,$uid)
     $this->syncMessages($msg,$from,$author);
 
 
-    // $this->sendSms($phone,2);
+    $this->sendSms($phone,2);
     return true;
   }
 
@@ -438,7 +438,7 @@ public function getAuditboxRelate($doc_id,$uid)
     $this->syncEvent($document,3,$user,$event_comment,implode(',', $recievers));
     $msg = "有新的公文请您签收";
     $this->syncMessages($msg,$uid,$arrTo);
-      // $this->sendSms($arrTo,2);
+      $this->sendSms($arrTo,2);
     return true;
 
   }
