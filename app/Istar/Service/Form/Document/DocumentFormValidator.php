@@ -12,7 +12,7 @@ class DocumentFormValidator extends AbstractValidator {
         protected $rules = array(
                 'subject' => 'required',
                 'tags' => 'required',
-                'docnumber' => 'required|unique:documents',
+                // 'docnumber' => 'required|unique:documents',
                 'recievers'=>'required',
             );
 }

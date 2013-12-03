@@ -15,7 +15,7 @@ class CreateDocumentsTable extends Migration {
 		Schema::create('documents', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('subject',100);//公文名称
-			$table->string('docnumber',45)->unique();//公文编号
+			$table->string('docnumber',45);//公文编号
 			$table->tinyInteger('seclevel')->default(0);//密级
 			$table->tinyInteger('priority')->default(0);//紧急程度
 			$table->integer('category')->unsigned();//分类

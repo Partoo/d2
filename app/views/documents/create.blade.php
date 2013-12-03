@@ -71,7 +71,7 @@
                 <div class="row-fluid">
                     <div class="span6">
                         <div class="control-group {{ $errors->has('docnumber') ? 'error' : '' }}">
-                            <label class="control-label"><i class=" icon-barcode"></i>  发文字号<span class="text-error"> *</span></label>
+                            <label class="control-label"><i class=" icon-barcode"></i>  发文字号</label>
                             <div class="controls controls-row">
                                 <input type="text" class="input-block-level" placeholder="请输入发文字号" name="docnumber" value="@if( isset($input['docnumber']) ){{ $input['docnumber'] }}@endif" > {{$errors->first('docnumber','<span class="help-inline">:message</span>')}}
                             </div>

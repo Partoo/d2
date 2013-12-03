@@ -32,7 +32,7 @@ Route::post('forgot-password/{passwordResetCode}', 'AuthController@postForgotPas
 //Home Route Group
 Route::group(array('prefix' => 'home'), function()
 {
- Route::get('/',array('as'=>'home','uses'=>'DocumentsController@index'));
+ Route::get('/',array('as'=>'home','uses'=>'HomeController@index'));
 
  Route::get('documents',array('as'=>'documents','uses'=>'DocumentsController@index'));
  Route::get('documents/api_index',array('as'=>'api_index','uses'=>'DocumentsController@api_index'));
