@@ -21,7 +21,7 @@
             <div class="widget-title">
                 <h4> 部门人员</h4>
             </div>
-            <div class="widget-body">
+            <div class="widget-body" id="recievers">
                             <select data-placeholder="请选择对象" class="chzn-select span12" multiple="multiple" name="recievers[]" tabindex="6">
 
                   @foreach($units as $key => $unit)

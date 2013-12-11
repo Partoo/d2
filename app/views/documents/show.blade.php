@@ -180,17 +180,13 @@
         $('#comment').focus();
         $('#comment').insertAtCursor($(this).text());
       });
+
       $('#insertUsers').click(function (e) {
         e.preventDefault();
-        $('#comment').focus();
-        $('#comment').insertAtCursor($('.widget-body select').val());
-        if ($('#comment').createTextRange) {
-            var r = $('#comment').createTextRange();
-             r.collapse(false);
-             r.select();
-        }
-        $('#comment').focus();
-      });
+        var data = $('#comment').val()+$('#recievers select').val();
+        var myTxt = "同志";
+        $('#comment').focus().val('').val(data+myTxt);
+      })
 
   };
 
