@@ -75,6 +75,7 @@ class DocumentsController extends BaseController {
 		return \Datatables::of($data)
 		->edit_column('subject','<a href="{{ url(\'home/documents/show\', $id) }}">{{$subject}}</a>')
 		->edit_column('state','@if($state==0)<span class="label label-info">未签收</span>@elseif($state==2) <span class="label label-success">已签收</span>@endif')
+		->edit_column('priority','@if($priority=="紧急")<span class="label label-warning">紧急</span>@elseif($priority=="特急") <span class="label label-important">特急</span>@else<span class="label label-success">普通</span>@endif')
 		->add_column('event','<a href="{{ url(\'home/documents/showTimeLine\', $id) }}" class="btn btn-primary"><i class="icon-screenshot"></i> 跟踪</a>')
 		->make();
 	}
@@ -86,6 +87,7 @@ class DocumentsController extends BaseController {
 		return \Datatables::of($data)
 		->edit_column('subject','<a href="{{ url(\'home/documents/show\', $id) }}">{{$subject}}</a>')
 		->edit_column('state','@if($state==0)<span class="label label-info">待批</span>@elseif($state==1) <span class="label label-warning">审批通过,待发</span>@elseif($state==-1) <span class="label label-success">预审通过</span>@elseif($state==2) <span class="label label-inverse">审批退回</span>@elseif($state==3) <span class="label label-success">已签发</span>@elseif($state==4) <span class="label label-important">已办结</span>@elseif($state==5) <span class="label">已归档</span>@endif')
+		->edit_column('priority','@if($priority=="紧急")<span class="label label-warning">紧急</span>@elseif($priority=="特急") <span class="label label-important">特急</span>@else<span class="label label-success">普通</span>@endif')
 		->add_column('event','<a href="{{ url(\'home/documents/showTimeLine\', $id) }}" class="btn btn-primary"><i class="icon-screenshot"></i> 跟踪</a>')
 		->make();
 	}
@@ -97,6 +99,7 @@ class DocumentsController extends BaseController {
 		return \Datatables::of($data)
 		->edit_column('subject','<a href="{{ url(\'home/documents/show\', $id) }}">{{$subject}}</a>')
 		->edit_column('state','@if($state==0)<span class="label label-info">待批</span>@elseif($state==1) <span class="label label-warning">审批通过,待发</span>@elseif($state==-1) <span class="label label-success">预审通过</span>@elseif($state==2) <span class="label label-inverse">审批退回</span>@elseif($state==3) <span class="label label-success">已签发</span>@elseif($state==4) <span class="label label-important">已办结</span>@elseif($state==5) <span class="label">已归档</span>@endif')
+		->edit_column('priority','@if($priority=="紧急")<span class="label label-warning">紧急</span>@elseif($priority=="特急") <span class="label label-important">特急</span>@else<span class="label label-success">普通</span>@endif')
 		->add_column('event','<a href="{{ url(\'home/documents/showTimeLine\', $id) }}" class="btn btn-primary"><i class="icon-screenshot"></i> 跟踪</a>')
 		->make();
 	}

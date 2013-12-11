@@ -251,7 +251,7 @@ public function getAuditboxRelate($doc_id,$uid)
     ->leftJoin('documents','documents.id','=','document_user.document_id')
     ->where('document_user.type','=',0)
     ->where('document_user.user_id','=',$uid)
-    ->select('documents.id','subject','docnumber','document_user.state','category','creDep','documents.created_at');
+    ->select('documents.id','subject','docnumber','document_user.state','priority','creDep','documents.created_at');
     return $results;
   }
 
@@ -267,7 +267,7 @@ public function getAuditboxRelate($doc_id,$uid)
     ->leftJoin('documents','documents.id','=','document_user.document_id')
     ->where('document_user.type','=',1)
     ->where('document_user.user_id','=',$uid)
-    ->select('documents.id','subject','docnumber','documents.state','category','creDep','documents.created_at');
+    ->select('documents.id','subject','docnumber','documents.state','priority','creDep','documents.created_at');
     return $results;
   }
 
@@ -282,7 +282,7 @@ public function getAuditboxRelate($doc_id,$uid)
     ->leftJoin('document_user','users.id','=','document_user.user_id')
     ->leftJoin('documents','documents.id','=','document_user.document_id')
     ->where('document_user.type','=',2)
-    ->select('documents.id','subject','docnumber','documents.state','category','creDep','documents.created_at');
+    ->select('documents.id','subject','docnumber','documents.state','priority','creDep','documents.created_at');
     return $results;
   }
 

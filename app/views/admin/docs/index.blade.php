@@ -24,12 +24,7 @@
     </div>
     <div class="widget-body">
       <div class="clearfix">
-        <ul class="nav nav-tabs">
-          <li  class="active"><a data-toggle="tab" href="#docs">公文管理</a></li>
-          <li><a data-toggle="tab" href="#settings">参数设置</a></li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="docs">
+
             <div class="control-group">
               <table  class="table table-striped table-hover table-bordered" id="dataTable">
                <thead>
@@ -46,11 +41,7 @@
               </thead>
             </table>
           </div>
-        </div>
-        <div class="tab-pane" id="settings">
-          <input type="text" value="{{$category}}" data-role="tagsinput"  />
-        </div>
-      </div>
+
 
     </div>
   </div>

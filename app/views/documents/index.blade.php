@@ -26,8 +26,7 @@
                                     <div class="metro-nav-block nav-block-orange">
                                         <a data-original-title="" href="{{route('profile')}}">
                                             <i class="icon-user"></i>
-                                            <div class="info">@foreach($user->getGroups() as $group) {{$group->name}}@endforeach</div>
-                                            <div class="status">您的身份</div>
+                                            <div class="status">权限:@foreach($user->getGroups() as $group) {{$group->name}}@endforeach</div>
                                         </a>
                                     </div>
                                     <div class="metro-nav-block nav-block-blue">
@@ -40,8 +39,8 @@
                                             @else
                                         <a data-original-title="" href="{{route('audit')}}">
                                             <i class="icon-sitemap"></i>
-                                            <div class="info">@foreach($user->getUnits() as $unit) {{$unit->name}}@endforeach</div>
-                                            <div class="status">所在部门</div>
+                                            <div class="info"></div>
+                                            <div class="status">部门:@foreach($user->getUnits() as $unit) {{$unit->name}}@endforeach</div>
                                         </a>
                                         @endif
                                     </div>

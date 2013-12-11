@@ -1,20 +1,10 @@
             <!-- BEGIN Sidebar -->
             <div id="sidebar" class="nav-collapse sidebar-fixed">
                 <!-- BEGIN Navlist -->
+                <div class="space15"></div>
                 <ul class="nav nav-list">
-                    <!-- BEGIN Search Form -->
-                    <li>
-                        <form target="javascript:;" method="GET" class="search-form">
-                            <span class="search-pan">
-                                <button type="submit">
-                                    <i class="icon-search"></i>
-                                </button>
-                                <input type="text" name="search" placeholder="输入搜索..." autocomplete="off" />
-                            </span>
-                        </form>
-                    </li>
-                    <!-- END Search Form -->
-                    <li {{Request::is('home')?"class='active'":"class=''"}}>
+
+                    <li {{Request::is('home')?"class='active'":"class=''"}} style="border-bottom: 1px solid rgba(255,255,255,.3);">
                         <a href="{{route('home')}}">
                             <i class="icon-dashboard"></i>
                             <span>控制面板</span>
@@ -113,6 +103,7 @@
                         </a>
                         <!-- BEGIN Submenu -->
                         <ul class="submenu">
+                            <li><a href="{{route('param')}}"><i class="icon-gear"></i> 参数设置</a></li>
                             <li><a href="{{route('docs')}}"><i class="icon-archive"></i> 公文管理</a></li>
                             <li><a href="{{route('users')}}"><i class="icon-user"></i> 用户管理</a></li>
                             <li><a href="{{route('groups')}}"><i class="icon-group"></i> 群组管理</a></li>

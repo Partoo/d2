@@ -32,7 +32,9 @@ Route::post('forgot-password/{passwordResetCode}', 'AuthController@postForgotPas
 //Home Route Group
 Route::group(array('prefix' => 'home'), function()
 {
- Route::get('/',array('as'=>'home','uses'=>'HomeController@index'));
+ Route::get('/',array('as'=>'home','uses'=>'DocumentsController@index'));
+
+
 
  Route::get('documents',array('as'=>'documents','uses'=>'DocumentsController@index'));
  Route::get('documents/api_index',array('as'=>'api_index','uses'=>'DocumentsController@api_index'));
@@ -112,6 +114,18 @@ Route::group(array('prefix'=>'admin'),function(){
   Route::group(array('prefix' => 'docs'), function()
   {
     Route::get('/', array('as' => 'docs', 'uses' => 'admin\DocsController@index'));
+    Route::get('docManage',array('as'=>'docManage','uses'=>'admin\DocsController@docManage'));
+    Route::get('create', array('as' => 'create/user', 'uses' => 'admin\DocsController@create'));
+    Route::post('create', 'admin\DocsController@postCreate');
+    Route::get('{userId}/edit', array('as' => 'update/user', 'uses' => 'admin\DocsController@getEdit'));
+    Route::post('{userId}/edit', 'admin\DocsController@postEdit');
+    Route::get('{userId}/delete', array('as' => 'delete/user', 'uses' => 'admin\DocsController@getDelete'));
+    Route::get('{userId}/restore', array('as' => 'restore/user', 'uses' => 'admin\DocsController@getRestore'));
+  });
+  #参数设置
+  Route::group(array('prefix' => 'param'), function()
+  {
+    Route::get('/', array('as' => 'param', 'uses' => 'admin\ParamController@index'));
     Route::get('docManage',array('as'=>'docManage','uses'=>'admin\DocsController@docManage'));
     Route::get('create', array('as' => 'create/user', 'uses' => 'admin\DocsController@create'));
     Route::post('create', 'admin\DocsController@postCreate');

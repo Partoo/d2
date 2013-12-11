@@ -1,7 +1,7 @@
 <?php
 return array(
        'seclevel'=>array('普通','绝密','机密','秘密'),
-       'priority'=>array('普通','急件','紧急','特急'),
+       'priority'=>array('普通','紧急','特急'),
        'creDept'=>array('市委办公室','市委'),
        'commonSentence'=>array(
                             '有新的公文请您批示',
