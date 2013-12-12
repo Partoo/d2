@@ -421,11 +421,11 @@ class DocumentsController extends BaseController {
 		$author = Sentry::getUser(); //获取当前用户id
 		$files = Input::file('files');
 		$content = Input::get('content');
-		if ($files[0]==NULL and $content==null) {
-			return Redirect::back()->withInput()->with('error','您还没有提供公文');
-		} else{
+		// if ($files[0]==NULL and $content==null) {
+		// 	return Redirect::back()->withInput()->with('error','您还没有提供公文');
+		// } else{}
 			$input = array_merge(Input::all(), array('sender_id' =>$author->id,'id'=>$id));
-		}
+
 
 		if ($this->documentform->update($input))
 		{

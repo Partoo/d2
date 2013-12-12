@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/uniform/css/uniform.default.css')}}" />
 @stop
 @section('pageTitle')
-<i class="icon-refresh"></i>  转发公文
+<i class="icon-refresh"></i>  更改公文
 @stop
 @section('content')
 
@@ -18,7 +18,7 @@
         <div class="widget blue">
             <div class="widget-title">
                 <h4>
-                    <i class="icon-refresh"></i> 转发公文
+                    <i class="icon-refresh"></i> 更改公文
                 </h4>
                 <span class="tools">
                     <a href="javascript:;" class="icon-chevron-down"></a>
@@ -94,7 +94,7 @@
                     </div>
                     <div class="span4">
                         <div class="control-group {{ $errors->has('file') ? 'error' : '' }}">
-                            <label class="control-label"><i class=" icon-level-up"></i>当前公文:{{$data->filepath}}</label>
+                            <label class="control-label"><i class=" icon-level-up"></i>当前公文:{{$data->filePath}}</label>
                             <div class="controls controls-row">
                                 <input type="file" class="alert alert-info" name="files[]"  multiple="multiple">{{$errors->first('file','<span class="help-inline">:message</span>')}}
                             </div>

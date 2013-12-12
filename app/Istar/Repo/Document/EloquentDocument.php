@@ -232,7 +232,7 @@ public function getAuditboxRelate($doc_id,$uid)
      }else{
        $event_comment= e(\Input::get('message'));
      }
-        $this->syncEvent($document,0,$user,$event_comment);
+        $this->syncEvent($document,0,$user,$event_comment,\Sentry::findUserById($data['recievers'])->username);
 
             return true;
   }
@@ -369,10 +369,10 @@ public function getAuditboxRelate($doc_id,$uid)
      $toAddModel->update(array('state' => 2));
 
     //给docflow表写入comment(该字段功能不同于comments表，后者仅为签收记录)
-    if (\Input::get('message')=='') {
+    if (\Input::get('comment')=='') {
        $event_comment= '未提异议';
      }else{
-       $event_comment= e(\Input::get('message'));
+       $event_comment= e(\Input::get('comment'));
      }
      $this->syncEvent($doc,4,$user,$event_comment);
      $doc->comments()->save($comment);
