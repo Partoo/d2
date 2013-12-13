@@ -131,11 +131,17 @@ public function getAuditboxRelate($doc_id,$uid)
   {
 
     $user = \Sentry::getUser()->username;
+    if ($data['docnumber']=='') {
+      $docnumber= date('Ymd-Gis');
+    }else{
+      $docnumber=$data['docnumber'];
+    }
+
     $document = $this->document->create(
       array(
        'subject' => $data['subject'],
        'category' =>$data['category'],
-       'docnumber' =>$data['docnumber'],
+       'docnumber' =>$docnumber,
        'seclevel' =>$data['seclevel'],
        'priority' =>$data['priority'],
        'sender_id' =>$data['sender_id'],
@@ -558,5 +564,6 @@ public function getAuditboxRelate($doc_id,$uid)
             $this->sms->sendSms($arrTo,$type);
       }
   }
+
 
 }
