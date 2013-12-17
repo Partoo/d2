@@ -48,14 +48,14 @@ class CategoryTableSeeder extends Seeder {
         foreach ($bb as $k => $val) {
             $statements[$k] = array(
                 'statement' =>$bb[$k],
-                'type'=>0
+                'type'=>1
                 );
         }
 
         foreach ($bb2 as $k => $val) {
             $statements2[$k] = array(
                 'statement' =>$bb2[$k],
-                'type'=>1
+                'type'=>0
                 );
         }
 
