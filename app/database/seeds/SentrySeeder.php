@@ -15,9 +15,9 @@ class SentrySeeder extends Seeder {
 
         Sentry::getUserProvider()->create(
             array(
-                'email'       => 'partoo@163.com',
-                'password'    => "partooa",
-                'username'  => '黄涛',
+                'email'       => 'mail@istarLand.com',
+                'password'    => "admin888",
+                'username'  => '管理员',
                 'phone'   => '18669783161',
                 'activated'   => 1,
                 ));
@@ -25,18 +25,9 @@ class SentrySeeder extends Seeder {
         Sentry::getUserProvider()->create(
             array(
                 'email'       => 'iris@163.com',
-                'password'    => "partooa",
-                'username'  => '张拉拉',
-                'phone'   => '15966902150',
-                'activated'   => 1,
-                ));
-
-        Sentry::getUserProvider()->create(
-            array(
-                'email'       => 'ootrap@163.com',
-                'password'    => "partooa",
-                'username'  => '黄小桃',
-                'phone'   => '18669783162',
+                'password'    => "jiaoxi",
+                'username'  => '周洁',
+                'phone'   => '13791965566',
                 'activated'   => 1,
                 ));
 
@@ -76,16 +67,10 @@ class SentrySeeder extends Seeder {
         $adminUser->addUnit($adminUnit);
 
         $adminUser2  = Sentry::getUserProvider()->findByLogin('iris@163.com');
-        $adminGroup2 = Sentry::getGroupProvider()->findByName('领导班子');
-        $adminUnit2 = Sentry::getUnitProvider()->findByName('组织部');
+        $adminGroup2 = Sentry::getGroupProvider()->findByName('管理员');
+        $adminUnit2 = Sentry::getUnitProvider()->findByName('办公室');
         $adminUser2->addGroup($adminGroup2);
         $adminUser2->addUnit($adminUnit2);
-
-        $adminUser3  = Sentry::getUserProvider()->findByLogin('ootrap@163.com');
-        $adminGroup3 = Sentry::getGroupProvider()->findByName('普通用户');
-        $adminUnit3 = Sentry::getUnitProvider()->findByName('组织部');
-        $adminUser3->addGroup($adminGroup3);
-        $adminUser3->addUnit($adminUnit3);
 
 
 
