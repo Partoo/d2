@@ -5,7 +5,7 @@ $(function() {
     $("#sidebar a.dropdown-toggle").click(function() {
         var e = $(this).next(".submenu");
         var t = $(this).children(".arrow");
-        e.slideToggle('fast', function() {
+        e.toggle('fast', function() {
             if ($(this).is(":hidden")) {
                 t.attr("class", "arrow icon-angle-right");
 
