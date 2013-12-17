@@ -42,7 +42,7 @@
                 <h4> 执行动作</h4>
             </div>
             <div class="widget-body">
-                            @foreach(\Statement::where('type','=',1)->lists('statement') as $action)
+                            @foreach(\Statement::where('type','=',0)->lists('statement') as $action)
             <a href="" class="btn btn-info">{{$action}}</a>
             @endforeach
             </div>

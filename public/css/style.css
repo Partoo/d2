@@ -3282,6 +3282,9 @@ ul.item-list .pull-right span {
 .table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th {
     background-color: #eee;
 }
+.table td,.table th {
+   text-align: center;
+}
 
 /*gritter changes*/
 .gritter-close {

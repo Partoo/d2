@@ -143,7 +143,7 @@ class DocumentsController extends BaseController {
 		$priority = Priority::lists('priority');
 		$category = Category::all();
 		$creDept = Creunit::lists('unit');
-		$commonSentence = Statement::where('type','=',0)->lists('statement');
+		$commonSentence = Statement::where('type','=',1)->lists('statement');
 		$input = Session::getOldInput();
 		return View::make('documents.create',compact('users','seclevel','category','priority','creDept','commonSentence','input'));
 	}

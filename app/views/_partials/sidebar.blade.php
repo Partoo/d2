@@ -103,11 +103,11 @@
                         </a>
                         <!-- BEGIN Submenu -->
                         <ul class="submenu">
-                            <li><a href="{{route('param')}}"><i class="icon-gear"></i> 参数设置</a></li>
                             <!-- <li><a href="{{route('docs')}}"><i class="icon-archive"></i> 公文管理</a></li> -->
                             <li><a href="{{route('users')}}"><i class="icon-user"></i> 用户管理</a></li>
                             <li><a href="{{route('groups')}}"><i class="icon-group"></i> 群组管理</a></li>
                             <li><a href="{{route('units')}}"><i class="icon-sitemap"></i> 部门管理</a></li>
+                            <li><a href="{{route('param')}}"><i class="icon-gear"></i> 参数设置</a></li>
                             <li><a href="{{route('site')}}"><i class="icon-wrench"></i> 系统维护</a></li>
                         </ul>
                         @endif

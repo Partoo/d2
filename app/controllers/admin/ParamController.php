@@ -72,6 +72,7 @@ class ParamController extends \BaseController {
 		}elseif (Input::has('statement')) {
 			$serie = new \Statement;
 			$serie->statement = $inputs['statement'];
+			$serie->type = $inputs['type'];
 		}elseif (Input::has('action')) {
 			$serie = new \Action;
 			$serie->action = $inputs['action'];
@@ -82,8 +83,8 @@ class ParamController extends \BaseController {
 				return "{\"id\": ".$serie->id."}";
 			}
 		} catch (\Exception $e) {
-			// return '您输入的记录已存在或格式不正确';
-			return $inputs;
+			return '您输入的记录已存在或格式不正确';
+			// return $inputs;
 		}
 
 	}
@@ -115,6 +116,9 @@ class ParamController extends \BaseController {
 				$serie = \Seclevel::find($inputs['pk']);
 				break;
 			case 'statement':
+				$serie = \Statement::find($inputs['pk']);
+				break;
+			case 'type':
 				$serie = \Statement::find($inputs['pk']);
 				break;
 			case 'action':

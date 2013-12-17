@@ -21,6 +21,8 @@
       </span>
     </div>
     <div class="widget-body">
+      <a href="#" class="btn btn-large btn-danger" id="create-btn"><i class="icon-plus"></i>   新建用语</a>
+      <div class="space15"></div>
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -31,14 +33,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="odd gradeX">
-            <td><input type="checkbox" class="checkboxes" value="1" /></td>
-            <td>Jhone doe</td>
-            <td class="hidden-phone"><a href="mailto:jhone-doe@gmail.com">jhone-doe@gmail.com</a></td>
-            <td class="hidden-phone">10</td>
-            <td class="center hidden-phone">02.03.2013</td>
-            <td class="hidden-phone"><span class="label label-success">Approved</span></td>
+          <tr id="newone" style="display:none">
+            <td>/</td>
+            <td><a href="#" class="btn btn-info newedit" id="newState" data-value='' data-type="text" data-name="statement" data-original-title="输入短语">点击新建</a></td>
+            <td><a href="#" class="btn btn-warning newedit editable-click editable-unsaved"  id="newType" data-type="select" data-name="type"  >点击选择</a></td>
+            <td><a href="#" class="btn btn-success save-btn">点击保存</a></td>
           </tr>
+          @foreach($lists as $val)
+          <tr>
+            <td><span class="badge">{{$val->id}}</span></td>
+            <td><a href="#" style="margin-bottom:5px;" class="btn btn-info edit" data-type="text" data-name="statement" data-pk="{{$val->id}}" >{{$val->statement}}</a></td>
+            <td><a href="#" style="margin-bottom:5px;" class="btn btn-warning statement-type" data-value="{{$val->type}}" data-type="select" data-name="type" data-pk="{{$val->id}}">@if($val->type=='0')<i class="icon-check-sign"></i>  审批用语@else<i class="icon-comments-alt"></i>  普通用语@endif</a></td>
+            <td><a href="{{route('param/delete/statement', $val->id)}}"  class="btn  btn-danger remove-btn" style="margin-bottom:5px;"><span><i class="icon-remove"></i></span></a></td>
+          </tr>
+          @endforeach
         </tbody>
       </table>
 
@@ -114,30 +122,59 @@ jQuery(document).ready(function() {
   }
 });
 
-//删除的前端视觉代码
-$('.removehandle').toggle(function() {
-  $('.remove-btn').css('display', '');
-}, function() {
-  $('.remove-btn').css('display', 'none');
+ $('.statement-type').editable({
+   url: '{{route('param/update')}}',
+   source: [
+   {value: 0, text: '审批用语'},
+   {value: 1, text: '普通用语'}
+   ],
+   success: function(response, newValue) {
+    $.pnotify({
+      title:'  操作提示',
+      text:response,
+      icon:'icon-info',
+      type:'info',
+      stack: stack_topleft,
+      animation: 'show'
+    })
+  }
 });
 
+
 //新建内容 前端处理代码
-$('.createbox').editable({
+
+$('#create-btn').click(function(event) {
+  $('#newone').show();
+});
+
+$('#newState').editable({
     url: '{{route('param')}}' //this url will not be used for creating new user, it is only for update
   });
 
-$('.createbox').editable('option', 'validate', function(v) {
+$('#newType').editable({
+  url: '{{route('param')}}',
+  source: [
+  {value: 0, text: '审批用语'},
+  {value: 1, text: '普通用语'}
+  ],
+});
 
-  if(!v) {
-    return '这里怎么能不填点什么呢'}
-    else{
-      $('.save-btn').css('display', '');
-    };
+$('.newedit').editable('option', 'validate', function(v) {
 
+  if(!v)
+    return '这里怎么能不填点什么呢'
   });
 
+//automatically show next editable
+$('.newedit').on('save.newuser', function(){
+    var that = this;
+    setTimeout(function() {
+        $(that).closest('td').next().find('.newedit').editable('show');
+    }, 200);
+});
+
 $('.save-btn').click(function(event) {
- $('.createbox').editable('submit', {
+ $('.newedit').editable('submit', {
    url: '{{route('param')}}',
    ajaxOptions: {
            dataType: 'json' //assuming json response
@@ -146,10 +183,7 @@ $('.save-btn').click(function(event) {
            if(data && data.id) {  //record created, response like {"id": 2}
                //set pk
              $(this).editable('option', 'pk', data.id);
-               //remove unsaved class
-               $(this).removeClass('editable-unsaved');
-
-               $('.save-btn').hide();
+             $('#newone').hide();
                document.location.reload();
              } else if(data && data.errors){
                //server-side validation error, response like {"errors": {"username": "username already exist"} }
@@ -175,10 +209,10 @@ $('.save-btn').click(function(event) {
        });
 });
 
-$('#categoryEditor .remove-btn').click(function(event) {
+$('.remove-btn').click(function(event) {
   event.preventDefault();
   var href = $(this).attr('href');
-  bootbox.confirm("此操作可能造成公文数据混乱,你确定执行吗?",function(isOk){
+  bootbox.confirm("此操作不可恢复,你确定执行吗?",function(isOk){
     if (isOk) {
       location.href=href;
     };
