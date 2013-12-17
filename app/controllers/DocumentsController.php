@@ -139,7 +139,7 @@ class DocumentsController extends BaseController {
 	{
 		// 从Units中找出审批领导
 		$users = Sentry::findAllUsersWithAccess('leader');
-		$seclevel =  SecLevel::lists('seclevel');
+		$seclevel =  Seclevel::lists('seclevel');
 		$priority = Priority::lists('priority');
 		$category = Category::all();
 		$creDept = Creunit::lists('unit');
