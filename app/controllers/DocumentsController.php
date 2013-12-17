@@ -139,11 +139,11 @@ class DocumentsController extends BaseController {
 	{
 		// 从Units中找出审批领导
 		$users = Sentry::findAllUsersWithAccess('leader');
-		$seclevel =  Config::get('site_const.seclevel');
-		$priority = Config::get('site_const.priority');
+		$seclevel =  SecLevel::lists('seclevel');
+		$priority = Priority::lists('priority');
 		$category = Category::all();
-		$creDept = Config::get('site_const.creDept');
-		$commonSentence = Config::get('site_const.commonSentence');
+		$creDept = Creunit::lists('unit');
+		$commonSentence = Statement::where('type','=',0)->lists('statement');
 		$input = Session::getOldInput();
 		return View::make('documents.create',compact('users','seclevel','category','priority','creDept','commonSentence','input'));
 	}

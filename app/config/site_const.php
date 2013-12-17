@@ -11,7 +11,8 @@ return array(
                     ),
        'modalVerb'=>array(
                 '请',
-                '责令'
+                '责令',
+                '恳请',
         ),
        'action'=>array(
             '尽早办理'

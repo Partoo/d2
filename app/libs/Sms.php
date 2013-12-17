@@ -39,16 +39,16 @@ public function Sendsms($mobile,$type='0')
  $authCode = \Session::get('mcode');
  switch ($type) {
   case '0':
-  $content='您的iStar智能办公系统验证码为:'.$authCode.',请即刻输入验证';
+  $content='您的办公系统验证码为:'.$authCode.',请即刻输入验证【iStar】';
   break;
   case '1':
-  $content='您的iStar智能办公系统收到了新的公文审批请示，请登录系统查看';
+  $content='您的办公系统收到了新的公文审批请示，请登录系统查看【iStar】';
   break;
   case '2':
-  $content='您的iStar智能办公系统有了新的公文动态，请登录系统查看';
+  $content='您的办公系统有了新的公文动态，请登录系统查看【iStar】';
   break;
   case '3':
-  $content='您的iStar智能办公系统用户信息有变化，请留意';
+  $content='您的办公系统用户信息有变化，请留意【iStar】';
   break;
 }
 $curlPost = 'accesskey='.$accesskey.'&secretkey='.$secretkey.'&mobile='.$mobile.'&content='.$content;

@@ -147,7 +147,7 @@
                         <div class="control-group">
                             <label class="control-label"><i class="icon-code"></i>  备注信息</label>
                             <div class="controls controls-row">
-                                <textarea class="message span12" name="message" rows="1"  placeholder="您可以在此填写备注信息">有新的公文，请签阅</textarea>
+                                <textarea class="message span12" name="message" rows="1"  placeholder="您可以在此填写备注信息">有新的公文请您批示</textarea>
                             </div>
                         </div>
                     </div>

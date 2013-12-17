@@ -2059,7 +2059,7 @@ div.tagsinput .not_valid {
 
 /*buttons style*/
 
-.btn{
+/*.btn{
     border-radius: 0;
     outline: none;
     border: none;
@@ -2070,7 +2070,7 @@ div.tagsinput .not_valid {
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
-}
+}*/
 
 
 
@@ -2897,48 +2897,7 @@ table .label{margin-left: 5px;}
     margin-top: 2px !important;
 }
 
-/*toggle style*/
 
-.toggle-button label {
-    background: #fefefe !important;
-    border-radius: 0 !important;
-
-}
-
-/* line 83, ../sass/bootstrap-toggle-buttons.scss */
-.toggle-button span.labelRight {
-    background: #fefefe !important;
-}
-/* line 91, ../sass/bootstrap-toggle-buttons.scss */
-.toggle-button span.primary, .toggle-button span.labelLeft {
-    color: #fefefe;
-    background: #4e89c7 !important;
-
-}
-/* line 96, ../sass/bootstrap-toggle-buttons.scss */
-.toggle-button span.info {
-    color: #fefefe;
-    background: #3daced !important;
-
-}
-/* line 102, ../sass/bootstrap-toggle-buttons.scss */
-.toggle-button span.success {
-    color: #fefefe;
-    background: #97c80b !important;
-
-}
-/* line 108, ../sass/bootstrap-toggle-buttons.scss */
-.toggle-button span.warning {
-    color: #fefefe;
-    background: #f9b400 !important;
-
-}
-/* line 114, ../sass/bootstrap-toggle-buttons.scss */
-.toggle-button span.danger {
-    color: #fefefe;
-    background: #e24b53 !important;
-
-}
 
 /* font awesome icon classes */
 /*[class^="icon-"], [class*=" icon-"],[class^="icon-"]:hover, [class*=" icon-"]:hover {

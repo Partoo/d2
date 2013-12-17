@@ -30,7 +30,7 @@ Route::get('forgot-password/{passwordResetCode}', array('as' => 'forgot-password
 Route::post('forgot-password/{passwordResetCode}', 'AuthController@postForgotPasswordConfirm');
 
 //Home Route Group
-Route::group(array('prefix' => 'home'), function()
+Route::group(array('prefix' => 'home','before'=>'auth'), function()
 {
  Route::get('/',array('as'=>'home','uses'=>'DocumentsController@index'));
 
@@ -80,7 +80,7 @@ Route::group(array('prefix' => 'home'), function()
 
 
 
-Route::group(array('prefix' => 'account'), function()
+Route::group(array('prefix' => 'account','before'=>'auth'), function()
 {
   # Account Dashboard
   Route::get('/', array('as' => 'account', 'uses' => 'account\ProfileController@dashboard'));
@@ -109,7 +109,7 @@ Route::group(array('prefix' => 'account'), function()
 
 
 
-Route::group(array('prefix'=>'admin'),function(){
+Route::group(array('prefix'=>'admin','before'=>'auth'),function(){
     # Document Management
   Route::group(array('prefix' => 'docs'), function()
   {
@@ -126,13 +126,19 @@ Route::group(array('prefix'=>'admin'),function(){
   Route::group(array('prefix' => 'param'), function()
   {
     Route::get('/', array('as' => 'param', 'uses' => 'admin\ParamController@index'));
-    Route::get('docManage',array('as'=>'docManage','uses'=>'admin\DocsController@docManage'));
-    Route::get('create', array('as' => 'create/user', 'uses' => 'admin\DocsController@create'));
-    Route::post('create', 'admin\DocsController@postCreate');
-    Route::get('{userId}/edit', array('as' => 'update/user', 'uses' => 'admin\DocsController@getEdit'));
-    Route::post('{userId}/edit', 'admin\DocsController@postEdit');
-    Route::get('{userId}/delete', array('as' => 'delete/user', 'uses' => 'admin\DocsController@getDelete'));
-    Route::get('{userId}/restore', array('as' => 'restore/user', 'uses' => 'admin\DocsController@getRestore'));
+    Route::get('/category', array('as' => 'param/category', 'uses' => 'admin\ParamController@index_category'));
+    Route::get('/unit', array('as' => 'param/unit', 'uses' => 'admin\ParamController@index_unit'));
+    Route::get('/priority', array('as' => 'param/priority', 'uses' => 'admin\ParamController@index_priority'));
+    Route::get('/seclevel', array('as' => 'param/seclevel', 'uses' => 'admin\ParamController@index_seclevel'));
+    Route::get('/statement', array('as' => 'param/statement', 'uses' => 'admin\ParamController@index_statement'));
+    Route::get('/action', array('as' => 'param/action', 'uses' => 'admin\ParamController@index_action'));
+    Route::post('/','admin\ParamController@store');
+    Route::post('/update',array('as' => 'param/update', 'uses' => 'admin\ParamController@update'));
+    Route::get('/param/{id}/delete/category', array('as' => 'param/delete/category', 'uses' => 'admin\ParamController@destroy'));
+    Route::get('/param/{id}/delete/unit', array('as' => 'param/delete/unit', 'uses' => 'admin\ParamController@destroy_unit'));
+    Route::get('/param/{id}/delete/seclevel', array('as' => 'param/delete/seclevel', 'uses' => 'admin\ParamController@destroy_seclevel'));
+    Route::get('/param/{id}/delete/priority', array('as' => 'param/delete/priority', 'uses' => 'admin\ParamController@destroy_priority'));
+    Route::get('/param/{id}/delete/statement', array('as' => 'param/delete/statement', 'uses' => 'admin\ParamController@destroy_statement'));
   });
     # User Management
   Route::group(array('prefix' => 'users'), function()
@@ -201,9 +207,10 @@ View::composer(array('_layouts.general','partials.sidebar'), function($view)
     $newInbox = DB::table('document_user')->where('user_id','=',$uid)->where('type','=',0)->where('state','=',0)->count();
     $newAuditbox = DB::table('document_user')->where('user_id','=',$uid)->where('type','=',2)->where('state','=',0)->count();
     $view->with('user',$user)
-            ->with('newInbox',$newInbox)
-            ->with('avatar',$avatar)
-            ->with('newAuditbox',$newAuditbox);
+    ->with('newInbox',$newInbox)
+    ->with('avatar',$avatar)
+    ->with('newAuditbox',$newAuditbox);
+
 });
 
 

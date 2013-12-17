@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration {
+class CreateStatementTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,9 +11,10 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('categories', function($table) {
+			Schema::create('statements', function($table) {
 			$table->increments('id');
-			$table->string('category',100)->unique();
+			$table->string('statement',100)->unique();
+			$table->tinyInteger('type')->unsigned()->default(0);//0为普通用户用用语，1为领导
 			$table->engine = 'InnoDB';
 			$table->timestamps();
 		});
@@ -26,7 +27,7 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('categories');
+		Schema::drop('statements');
 	}
 
 }

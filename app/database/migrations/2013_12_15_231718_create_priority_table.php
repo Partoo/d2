@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration {
+class CreatePriorityTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,9 +11,9 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('categories', function($table) {
+		Schema::create('priority', function($table) {
 			$table->increments('id');
-			$table->string('category',100)->unique();
+			$table->string('priority',100)->unique();
 			$table->engine = 'InnoDB';
 			$table->timestamps();
 		});
@@ -26,7 +26,7 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('categories');
+		Schema::drop('priority');
 	}
 
 }
