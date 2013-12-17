@@ -60,7 +60,7 @@ class SentrySeeder extends Seeder {
                 ));
 
                         // Assign user permissions
-        $adminUser  = Sentry::getUserProvider()->findByLogin('partoo@163.com');
+        $adminUser  = Sentry::getUserProvider()->findByLogin('mail@istarLand.com');
         $adminGroup = Sentry::getGroupProvider()->findByName('管理员');
         $adminUnit = Sentry::getUnitProvider()->findByName('办公室');
         $adminUser->addGroup($adminGroup);
