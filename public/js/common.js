@@ -1,21 +1,5 @@
 $(function() {
-    $("a[href^=#]").click(function(e) {
-        e.preventDefault();
-    });
-    $("html").niceScroll({
-        zindex: 999
-    });
-    $(".nice-scroll").niceScroll({
-        railoffset: {
-            left: -3
-        }
-    });
-    $(".show-tooltip").tooltip({
-        container: "body",
-        delay: {
-            show: 500
-        }
-    });
+
 
 
     $("#sidebar a.dropdown-toggle").click(function() {
@@ -44,14 +28,8 @@ $(function() {
             $.cookie('istarbar', null, {expires: 7,path:'/'});
         }
 
-
-
-
-        $(".nice-scroll").getNiceScroll().resize();
     });
-    $("#sidebar .search-form").click(function() {
-        $('#sidebar .search-form input[type="text"]').focus();
-    });
+
     $("#sidebar .nav > li.active > a > .arrow").removeClass("icon-angle-right").addClass("icon-angle-down");
 
     if ($("#sidebar").hasClass("sidebar-fixed")) {
@@ -94,11 +72,7 @@ jQuery('.widget .tools .icon-remove').click(function () {
     jQuery(this).parents(".widget").parent().remove();
 });
 
-//    tool tips
 
-$('.element').tooltip();
-
-$('.tooltips').tooltip();
 
 //    popovers
 
@@ -106,44 +80,8 @@ $('.popovers').popover();
 
 // scroller
 
-// 签收按钮
-$('#signing').click(function() {
-  $.pnotify({
-    text: '您已成功签收此文件',
-    type: 'success',
-    animate_speed: 'fast',
-    delay:1000,
-    before_open:function(pnotify){
-     pnotify.css({
-        "top": ($(window).height() / 2) - (pnotify.height() / 2),
-        "left": ($(window).width() / 2) - (pnotify.width() / 2)
-    });
- },
- after_open: function(pnotify) {
-    $('#signing').addClass('hidden');
-    $('#signed').removeClass('hidden');
-}
-});
-});
-// 签收按钮
-$('#archiving').click(function() {
-  $.pnotify({
-    text: '您已成功将该文件归档',
-    type: 'success',
-    animate_speed: 'fast',
-    delay:1000,
-    before_open:function(pnotify){
-     pnotify.css({
-        "top": ($(window).height() / 2) - (pnotify.height() / 2),
-        "left": ($(window).width() / 2) - (pnotify.width() / 2)
-    });
- },
- after_open: function(pnotify) {
-    $('#archiving').addClass('hidden');
-    $('#archived').removeClass('hidden');
-}
-});
-});
+
+
 
 
 });

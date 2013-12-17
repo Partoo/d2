@@ -316,10 +316,10 @@ public function getAuditboxRelate($doc_id,$uid)
      $docflow->document_id = $id;
 
     //给docflow表写入comment(该字段功能不同于comments表，后者仅为签收记录)
-    if (\Input::get('message')=='') {
+    if (\Input::get('comment')=='') {
        $event_comment= '已审阅';
      }else{
-       $event_comment= e(\Input::get('message'));
+       $event_comment= e(\Input::get('comment'));
      }
 
      if (\Input::has('doc_pass')) {

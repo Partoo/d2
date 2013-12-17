@@ -73,7 +73,7 @@ class ParamController extends \BaseController {
 			$serie = new \Statement;
 			$serie->statement = $inputs['statement'];
 		}elseif (Input::has('action')) {
-			$serie = new \Statement;
+			$serie = new \Action;
 			$serie->action = $inputs['action'];
 		}
 
@@ -116,6 +116,9 @@ class ParamController extends \BaseController {
 				break;
 			case 'statement':
 				$serie = \Statement::find($inputs['pk']);
+				break;
+			case 'action':
+				$serie = \Action::find($inputs['pk']);
 				break;
 
 		}
@@ -164,6 +167,18 @@ class ParamController extends \BaseController {
 	{
 
 		$category = \Seclevel::find($id);
+		try {
+			if ($category->delete()) {
+				return \Redirect::back()->with('success', '删除成功');
+			}
+		} catch (\Exception $e) {
+			return \Redirect::back()->with('error', '删除不成功');
+		}
+	}
+	public function destroy_action($id)
+	{
+
+		$category = \Action::find($id);
 		try {
 			if ($category->delete()) {
 				return \Redirect::back()->with('success', '删除成功');

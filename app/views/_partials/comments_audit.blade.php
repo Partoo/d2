@@ -12,8 +12,8 @@
                 <h4> 情态动词</h4>
             </div>
             <div class="widget-body">
-                            @foreach(\Setting::get('site_const.modalVerb') as $verb)
-            <a href="" class="btn btn-info">{{$verb}}</a>
+                            @foreach(\Action::lists('action') as $verb)
+            <a href="" class="btn btn-info" style="margin-bottom:5px">{{$verb}}</a>
             @endforeach
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <h4> 执行动作</h4>
             </div>
             <div class="widget-body">
-                            @foreach(\Setting::get('site_const.action') as $action)
+                            @foreach(\Statement::where('type','=',1)->lists('statement') as $action)
             <a href="" class="btn btn-info">{{$action}}</a>
             @endforeach
             </div>

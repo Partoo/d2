@@ -136,6 +136,7 @@ Route::group(array('prefix'=>'admin','before'=>'auth'),function(){
     Route::post('/update',array('as' => 'param/update', 'uses' => 'admin\ParamController@update'));
     Route::get('/param/{id}/delete/category', array('as' => 'param/delete/category', 'uses' => 'admin\ParamController@destroy'));
     Route::get('/param/{id}/delete/unit', array('as' => 'param/delete/unit', 'uses' => 'admin\ParamController@destroy_unit'));
+    Route::get('/param/{id}/delete/action', array('as' => 'param/delete/action', 'uses' => 'admin\ParamController@destroy_action'));
     Route::get('/param/{id}/delete/seclevel', array('as' => 'param/delete/seclevel', 'uses' => 'admin\ParamController@destroy_seclevel'));
     Route::get('/param/{id}/delete/priority', array('as' => 'param/delete/priority', 'uses' => 'admin\ParamController@destroy_priority'));
     Route::get('/param/{id}/delete/statement', array('as' => 'param/delete/statement', 'uses' => 'admin\ParamController@destroy_statement'));

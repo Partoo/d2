@@ -28,9 +28,9 @@
         <!-- 公文类别 -->
         <div class="control-group" id="categoryEditor">
             @foreach($lists as $cat)
-            <a href="#" style="margin-bottom:5px;" class="btn btn-info edit" data-type="text" data-name="category" data-pk="{{$cat->id}}" >{{$cat->category}}</a><a href="{{route('param/delete/category', $cat->id)}}"  class="btn  btn-info remove-btn" style="margin-bottom:5px;display:none"><span><i class="icon-remove"></i></span></a>
+            <a href="#" style="margin-bottom:5px;" class="btn btn-info edit" data-type="text" data-name="action" data-pk="{{$cat->id}}" >{{$cat->action}}</a><a href="{{route('param/delete/action', $cat->id)}}"  class="btn  btn-info remove-btn" style="margin-bottom:5px;display:none"><span><i class="icon-remove"></i></span></a>
             @endforeach
-            <a href="#" style="margin-bottom:5px;" class="btn btn-success createbox editable editable-click editable-empty" data-value='' data-type="text" data-name="category" data-original-title="请输入内容"><i class="icon-plus"></i>  新建</a><a class="btn btn-success save-btn" style="margin-bottom:5px;display:none"><span><i class="icon-save"></i></span></a>
+            <a href="#" style="margin-bottom:5px;" class="btn btn-success createbox editable editable-click editable-empty" data-value='' data-type="text" data-name="action" data-original-title="请输入内容"><i class="icon-plus"></i>  新建</a><a class="btn btn-success save-btn" style="margin-bottom:5px;display:none"><span><i class="icon-save"></i></span></a>
         </div>
         <div>
             <a href="#" class="btn btn-danger removehandle"><i class="icon-remove"></i>  删除已有分类</a>
