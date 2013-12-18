@@ -88,7 +88,7 @@ class UsersController extends AdminController {
 				$user->addUnit($unit);
 
 				$success = Lang::get('admin/users/message.success.create');
-				return Redirect::route('update/user')->with('success', $success);
+				return Redirect::route('users')->with('success', $success);
 			}
 			$error = Lang::get('admin/users/message.error.create');
 			return Redirect::route('create/user')->with('error', $error);
