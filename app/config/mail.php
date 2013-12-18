@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => 'sendmail',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'mail@app.dev', 'name' => 'iStar'),
+	'from' => array('address' => 'mail@iStarLand.com', 'name' => 'iStar'),
 
 	/*
 	|--------------------------------------------------------------------------
