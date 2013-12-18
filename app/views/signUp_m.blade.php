@@ -38,7 +38,7 @@
 <!-- START MOBILE AUTHCODE -->
 <div class="control-group{{ $errors->first('authCode', ' error') }}">
     <div class="login-field input-prepend">
-        {{Form::input('button', 'authTrigger', '发送短信', array('id'=>'authTrigger','class'=>'btn btn-success'))}}
+        {{Form::input('button', 'authTrigger', '验证手机', array('id'=>'authTrigger','class'=>'btn btn-success'))}}
         {{Form::text('authCode', '', array('placeholder'=>'输入收到的验证码','class'=>'input-medium'))}}
     </div>
     <div class="alert alert-error" id="remember-tip"><i class=" icon-exclamation-sign"></i>您的手机号码格式不正确</div>
