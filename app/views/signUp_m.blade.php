@@ -35,10 +35,17 @@
         {{Form::hidden('key',$key,array('id'=>'key'))}}
     </div>
 </div>
-
-<div class="login-field">
-    或者您可以<a href="{{route('signUp')}}">用邮箱注册</a>
+<!-- START MOBILE AUTHCODE -->
+<div class="control-group{{ $errors->first('authCode', ' error') }}">
+    <div class="login-field input-prepend">
+        {{Form::input('button', 'authTrigger', '发送短信', array('id'=>'authTrigger','class'=>'btn btn-success'))}}
+        {{Form::text('authCode', '', array('placeholder'=>'输入收到的验证码','class'=>'input-medium'))}}
+    </div>
+    <div class="alert alert-error" id="remember-tip"><i class=" icon-exclamation-sign"></i>您的手机号码格式不正确</div>
 </div>
+<div id="showKey"></div>
+
+
 <!-- START USERNAME -->
 <div class="control-group{{ $errors->first('username', ' error') }}">
     <div class="login-field input-prepend">
@@ -60,17 +67,11 @@
         {{Form::password('re-password', array('placeholder'=>'请再次输入密码以便确认'))}}
     </div>
 </div>
-<!-- START MOBILE AUTHCODE -->
-<div class="control-group{{ $errors->first('authCode', ' error') }}">
-    <div class="login-field input-prepend">
-        {{Form::input('button', 'authTrigger', '发送短信', array('id'=>'authTrigger','class'=>'btn btn-success'))}}
-        {{Form::text('authCode', '', array('placeholder'=>'输入收到的验证码','class'=>'input-medium'))}}
-    </div>
-    <div class="alert alert-error" id="remember-tip"><i class=" icon-exclamation-sign"></i>您的手机号码格式不正确</div>
-</div>
-<div id="showKey"></div>
 <div class="login-button">
     {{Form::submit('立即注册', array('class'=>'btn-block btn-danger btn-large'))}}
+</div>
+<div class="login-field">
+    或者您可以<a href="{{route('signUp')}}">用邮箱注册</a>
 </div>
 {{Form::close()}}
 
