@@ -185,6 +185,9 @@ Route::group(array('prefix'=>'admin','before'=>'auth'),function(){
 });
 
 Route::post('sendSms',function(){
+  if (!Setting::get('site.smsOn')) {
+    return '短信功能被关闭,请联系管理员';
+  } else
   $msg = new Sms;
   $num = $_POST['num'];
   $key = $_POST['key'];
