@@ -114,11 +114,11 @@ Route::group(array('prefix'=>'admin','before'=>'auth'),function(){
   Route::group(array('prefix' => 'docs'), function()
   {
     Route::get('/', array('as' => 'docs', 'uses' => 'admin\DocsController@index'));
-    Route::get('docManage',array('as'=>'docManage','uses'=>'admin\DocsController@docManage'));
+    Route::get('docManageAPI',array('as'=>'docManageAPI','uses'=>'admin\DocsController@docManageAPI'));
     Route::get('create', array('as' => 'create/user', 'uses' => 'admin\DocsController@create'));
     Route::post('create', 'admin\DocsController@postCreate');
-    Route::get('{userId}/edit', array('as' => 'update/user', 'uses' => 'admin\DocsController@getEdit'));
-    Route::post('{userId}/edit', 'admin\DocsController@postEdit');
+    Route::get('{id}/edit', array('as' => 'update/doc', 'uses' => 'admin\DocsController@getEdit'));
+    Route::post('{id}/edit', 'admin\DocsController@postEdit');
     Route::get('{userId}/delete', array('as' => 'delete/user', 'uses' => 'admin\DocsController@getDelete'));
     Route::get('{userId}/restore', array('as' => 'restore/user', 'uses' => 'admin\DocsController@getRestore'));
   });
@@ -185,9 +185,7 @@ Route::group(array('prefix'=>'admin','before'=>'auth'),function(){
 });
 
 Route::post('sendSms',function(){
-  if (!Setting::get('site.smsOn')) {
-    return '短信功能被关闭,请联系管理员';
-  } else
+
   $msg = new Sms;
   $num = $_POST['num'];
   $key = $_POST['key'];

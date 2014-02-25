@@ -165,16 +165,16 @@
 <script src="{{asset('js/jquery.cookie.js')}}"></script>
 <script src="{{asset('js/scripts.min.js')}}"></script>
 @yield('myjs')
-<script>
-@include('_layouts.notifications')
-// 侧边栏开关 全局检测
-    var istarbar = $.cookie('istarbar');
-    if (istarbar=='sidebar-collapsed') {
-        $("#sidebar-collapse > i").attr("class", "icon-double-angle-right");
-        $("#sidebar").addClass('sidebar-collapsed');
-    }else{
-        $("#sidebar-collapse > i").attr("class", "icon-double-angle-left");
-    }
-</script>
+// <script>
+// @include('_layouts.notifications')
+// // 侧边栏开关 全局检测
+//     var istarbar = $.cookie('istarbar');
+//     if (istarbar=='sidebar-collapsed') {
+//         $("#sidebar-collapse > i").attr("class", "icon-double-angle-right");
+//         $("#sidebar").addClass('sidebar-collapsed');
+//     }else{
+//         $("#sidebar-collapse > i").attr("class", "icon-double-angle-left");
+//     }
+// </script>
 </body>
 </html>

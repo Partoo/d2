@@ -2008,6 +2008,7 @@ div.tagsinput .not_valid {
     border-color: #9de2ea
 }
 
+
 .navbar .btn-navbar,.navbar .btn-navbar:hover,.navbar .btn-navbar:focus,.navbar .btn-navbar .collapsed:hover,.navbar .btn-navbar .collapsed:focus,.flaty-nav>li.open,.flaty-nav>li:hover,.dropdown-navbar>li.nav-header {
     background:rgba(0,0,0,0.2);
 }
@@ -3162,6 +3163,7 @@ ul.item-list .pull-right span {
 
 .metro-nav .metro-nav-block .status, .metro-nav .metro-nav-block .tile-status {
     background-color: transparent;
+    width: inherit;
     bottom: -10px;
     font-size: 14px;
     left: 10px;

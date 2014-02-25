@@ -76,7 +76,7 @@ $(document).ready(function() {
     ],
     "bProcessing": true,
     "bServerSide": true,
-    "sAjaxSource": "{{route('docManage')}}",
+    "sAjaxSource": "{{route('docManageAPI')}}",
     "oLanguage": {
       "sLengthMenu": "每页显示 _MENU_ 条记录",
       "sZeroRecords": "对不起，查询不到任何相关数据",

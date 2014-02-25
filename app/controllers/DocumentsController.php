@@ -88,7 +88,7 @@ class DocumentsController extends BaseController {
 		->edit_column('subject','<a href="{{ url(\'home/documents/show\', $id) }}">{{$subject}}</a>')
 		->edit_column('state','@if($state==0)<span class="label label-info">待批</span>@elseif($state==1) <span class="label label-warning">审批通过,待发</span>@elseif($state==-1) <span class="label label-success">预审通过</span>@elseif($state==2) <span class="label label-inverse">审批退回</span>@elseif($state==3) <span class="label label-success">已签发</span>@elseif($state==4) <span class="label label-important">已办结</span>@elseif($state==5) <span class="label">已归档</span>@endif')
 		->edit_column('priority','@if($priority=="紧急")<span class="label label-warning">紧急</span>@elseif($priority=="特急") <span class="label label-important">特急</span>@else<span class="label label-success">普通</span>@endif')
-		->add_column('event','<a href="{{ url(\'home/documents/showTimeLine\', $id) }}" class="btn btn-primary"><i class="icon-screenshot"></i> 跟踪</a>')
+		->add_column('event','@if($state==2)<a href="{{ url(\'home/documents/edit\', $id) }}" class="btn btn-warning"><i class="icon-edit"></i> 修改</a>@endif<a href="{{ url(\'home/documents/showTimeLine\', $id) }}" class="btn btn-primary"><i class="icon-screenshot"></i> 跟踪</a>')
 		->make();
 	}
 
@@ -394,12 +394,14 @@ class DocumentsController extends BaseController {
 	public function edit($id)
 	{
 		// 从Units中找出审批领导
+
+		$commonSentence = Statement::where('type','=',1)->lists('statement');
 		$users = Sentry::findAllUsersWithAccess('leader');
-		$seclevel =  Config::get('site_const.seclevel');
-		$priority = Config::get('site_const.priority');
+		$seclevel =  Seclevel::lists('seclevel');
+		$priority = Priority::lists('priority');
 		$category = Category::all();
-		$creDept = Config::get('site_const.creDept');
-		$commonSentence = Config::get('site_const.commonSentence');
+		$creDept = Creunit::lists('unit');
+		$commonSentence = Statement::where('type','=',1)->lists('statement');
 		$data = $this->document->getById($id);
 		$tags = '';
 		$data->tags->each(function($tag) use(&$tags)
@@ -419,17 +421,18 @@ class DocumentsController extends BaseController {
 	public function update($id)
 	{
 		$author = Sentry::getUser(); //获取当前用户id
+
 		$files = Input::file('files');
 		$content = Input::get('content');
-		// if ($files[0]==NULL and $content==null) {
-		// 	return Redirect::back()->withInput()->with('error','您还没有提供公文');
-		// } else{}
+		if ($files[0]==NULL and $content==null) {
+			return Redirect::back()->withInput()->with('error','您还没有提供公文');
+		} else{
 			$input = array_merge(Input::all(), array('sender_id' =>$author->id,'id'=>$id));
-
+		}
 
 		if ($this->documentform->update($input))
 		{
-			return Redirect::route('outbox')->with('success','成功提交');
+			return Redirect::route('outbox')->with('success','成功创建');
 		}
 		else {
 			return Redirect::back()

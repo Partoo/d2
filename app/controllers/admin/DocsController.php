@@ -17,16 +17,10 @@ class DocsController extends \BaseController {
 
 	public function index()
 	{
-		$seclevel = implode(',', \Setting::get('site_const.seclevel'));
-		$priority = implode(',', \Setting::get('site_const.priority'));
-		$catLists = \Category::lists('category');
-		$category = implode(',',$catLists);
-		// die(var_dump($category));
-		$creDept = implode(',', \Setting::get('site_const.creDept'));
-		return View::make('admin.docs.index',compact('seclevel','priority','category','creDept'));
+		return View::make('admin.docs.index');
 	}
 
-	public function docManage()
+	public function docManageAPI()
 	{
 		$data = $this->document->getAll();
 		return \Datatables::of($data)->make();
