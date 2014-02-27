@@ -234,7 +234,7 @@ public function getAuditboxRelate($doc_id,$uid)
 
     //给docflow表写入comment(该字段功能不同于comments表，后者仅为签收记录)
     if (\Input::get('message')=='') {
-       $event_comment= '我淘气地发送了一篇公文';
+       $event_comment= '淘气地发送了一篇公文';
      }else{
        $event_comment= e(\Input::get('message'));
      }
