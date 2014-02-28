@@ -31,7 +31,8 @@ class CreateDocumentsTable extends Migration {
 			$table->text('content'); //内容提要
 			$table->string('filePath');//公文url
 			$table->string('attachment');//附件url
-			$table->boolean('isLoop')->default(false); //是否为持续跟踪，默认否
+			$table->boolean('constantTrack')->default(false); //是否为持续跟踪，默认否
+			$table->timestamp('expiredDate');//加入公文办理截止期限
 			$table->timestamps();
 			$table->softDeletes();
 
