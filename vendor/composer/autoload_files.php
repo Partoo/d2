@@ -8,6 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     $vendorDir . '/ircmaxell/password-compat/lib/password.php',
     $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
-    $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     $vendorDir . '/way/guard-laravel/src/Way/globals.php',
+    $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
 );
