@@ -45,7 +45,6 @@ class DocumentForm {
         {
             return false;
         }
-
         $input['tags'] = $this->processTags($input['tags']);
         $input['recievers'] = $this->processRecivers($input['recievers']);
         if (($input['files'][0]==NULL)) {

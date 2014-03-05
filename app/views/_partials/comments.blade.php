@@ -18,12 +18,15 @@
                             </div>
 @elseif($showButtons=='redirect')
     @include('_partials.comments_redirect')
-@elseif($showButtons=='postDone')
-    @include('_partials.comments_postDone')
+
 @elseif($showButtons=='done')
                             <div class="alert alert-success">
                                 <strong>提示:</strong> 该公文已顺利办结
                             </div>
+@endif
+
+@if($showPostDoneBtn=='yes')
+    @include('_partials.comments_postDone')
 @endif
 
          <!-- BEGIN REPLY -->

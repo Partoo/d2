@@ -160,10 +160,17 @@ class DocumentsController extends BaseController {
 
 		$files = Input::file('files');
 		$content = Input::get('content');
+
+		if (isset($_POST['constantTrack'])) {
+			$isTrack = 0;
+		} else {
+			$isTrack = 1;
+		}
+
 		if ($files[0]==NULL and $content==null) {
 			return Redirect::back()->withInput()->with('error','您还没有提供公文');
 		} else{
-			$input = array_merge(Input::all(), array('sender_id' =>$author->id));
+			$input = array_merge(Input::all(), array('sender_id' =>$author->id,'isTrack'=>$isTrack));
 		}
 
 		if ($this->documentform->save($input))
@@ -198,6 +205,13 @@ class DocumentsController extends BaseController {
 		$state = $this->document->getState($id);
 		 $showButtons = 'none'; //用来控制show.blade中出现的按钮,0:none,-1:拟办状态,显示修改按钮,0:待批状态,显示审核按钮,1:待批状态,普通用户显示耐心等待,2:审批通过,显示转发按钮,3:签发状态,显示办结,3:
 
+		 $showPostDoneBtn = '';  //让办结按钮不限制的太死，出现在公文的各个状态中
+		 if ($uid==$data->sender_id&&$state<>'4') {
+		 	$showPostDoneBtn = 'yes' ;
+		 }
+		 $isConstantTrack = $data->constantTrack;
+
+
 		 switch ($state) {
 		 	case '-1':
 		 	if ($uid==$data->sender_id) {
@@ -229,9 +243,10 @@ class DocumentsController extends BaseController {
 		 	break;
 
 		 	case '3':
-		 	if ($uid==$data->sender_id) {
-		 		$showButtons = 'postDone';
-		 	} elseif ($this->document->getInboxRelate($id,$uid)=='0') {
+		 	// if ($uid==$data->sender_id) {
+		 	// 	$showButtons = 'postDone';
+		 	// } else....  让办结按钮不限制的太死，随时出现，故删掉此行
+		 	if ($this->document->getInboxRelate($id,$uid)=='0' || $isConstantTrack=='1') {
 		 		$showButtons = 'sign';
 		 	}else $showButtons = 'signed';
 
@@ -247,12 +262,12 @@ class DocumentsController extends BaseController {
 		 $units = Sentry::findAllUnits();
 
 		 $myDocs = User::find($uid)->documents()
-		 				->select('id','created_at','subject')
-		 				->orderby('created_at','desc')
-		 				->take(5)
-		 				->get();
+		 ->select('id','created_at','subject')
+		 ->orderby('created_at','desc')
+		 ->take(5)
+		 ->get();
 
-		 return View::make('documents.show',compact('data','tags','showButtons','units','myDocs'));
+		 return View::make('documents.show',compact('data','tags','showButtons','units','myDocs','showPostDoneBtn'));
 		}
 
 

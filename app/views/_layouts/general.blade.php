@@ -146,7 +146,10 @@
          @yield('content')
 
          <footer>
-            <p>2013 © Powered by iStar Office v2.0</p>
+            <p>Powered by iStar Office v2.0
+                    <br />
+                    <small>© 2013-<?php echo date('Y');?> Foretime Tech Co.,LTD</small>
+            </p>
         </footer>
 
         <a id="btn-scrollup" class="btn btn-circle btn-large" href="#"><i class="icon-chevron-up"></i></a>

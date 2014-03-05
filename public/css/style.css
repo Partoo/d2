@@ -1728,90 +1728,6 @@ div.tagsinput .not_valid {
     filter: none!important
 }
 
-.form-wizard .progress {
-    margin-bottom: 30px
-}
-
-.form-wizard .steps {
-    padding: 10px 0;
-    margin-bottom: 15px
-}
-
-.form-wizard .steps .step {
-    padding: 0;
-    color: #555;
-    background-color: transparent;
-    -webkit-border-radius: 0!important;
-    -moz-border-radius: 0!important;
-    border-radius: 0!important
-}
-
-.form-wizard .steps .step:hover {
-    background-color: transparent;
-    color: #555
-}
-
-.form-wizard .step .number {
-    background-color: #eee;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 300;
-    padding: 12px 15px!important;
-    margin-right: 10px
-}
-
-.form-wizard .step .desc {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 300
-}
-
-.form-wizard .steps-fill .step,.form-wizard .steps-fill .step:hover {
-    background-color: #f5f5f5
-}
-
-.form-wizard .active .step .number {
-    background-color: #0090ff;
-    color: #fff
-}
-
-.form-wizard .active .step .desc {
-    font-weight: 400
-}
-
-.form-wizard .steps-fill .active .step,.form-wizard .steps-fill .active .step:hover {
-    background-color: #5bb1f4;
-    color: #fff
-}
-
-.form-wizard .step i {
-    display: none
-}
-
-.form-wizard .done .step .number {
-    background-color: #15b74e;
-    color: #fff
-}
-
-.form-wizard .done .step .desc {
-    font-weight: 400
-}
-
-.form-wizard .steps-fill .done .step,.form-wizard .steps-fill .done .step:hover {
-    background-color: #50d17e;
-    color: #fff
-}
-
-.form-wizard .done .step i {
-    font-size: 12px;
-    font-weight: 400;
-    color: #999;
-    display: inline-block
-}
-
-.form-wizard .steps-fill .done .step i {
-    color: #fff
-}
 
 .chart,.pie,.bars {
     overflow: hidden;
@@ -4796,4 +4712,40 @@ margin-top: 10px;
 
 .dropdown-navbar .notify [class*=icon-].blue {
     background: #66badf
+}
+
+
+/***** VERTICAL WIZARD *****/
+
+.actionBar {
+    padding: 20px; position: relative; overflow: hidden; clear: both;
+}
+.actionBar .loader { float: left; display: none; }
+.actionBar a {
+    float: right; display: inline-block; padding: 7px 15px; background: #0F87AD; color: #fff; margin-left: 5px; font-weight: bold;
+  line-height: 21px; border: 1px solid #0F7280;
+}
+.actionBar a:hover { text-decoration: none; background: #485B79; color: #fff; border: 1px solid #3f526f; }
+
+.actionBar a.buttonDisabled { background: #eee; border: 1px solid #ccc; color: #999; }
+.actionBar a.buttonDisabled:hover { background: #eee; color: #999; cursor: default; }
+.verwizard .verticalmenu { list-style: none; float: left;}
+.verwizard .verticalmenu li { margin-bottom: 2px; }
+.verwizard .verticalmenu a { display: block; padding: 10px; color: #999; }
+.verwizard .verticalmenu a:hover { text-decoration: none; }
+.verwizard .verticalmenu a.selected { background: #0F87AD; color: #fff; }
+.verwizard .verticalmenu a.done { background: #999; color: #fff; }
+.verwizard .verticalmenu a span { font-weight: bold; }
+
+.wizardMain {
+    border: 1px solid #ddd; padding: 20px;
+}
+.wizardMain h4 {
+    padding-bottom: 20px; border-bottom: 1px solid #ddd;
+}
+.wizardMain p { margin: 20px 0; }
+label.error {
+  font-weight: bold;
+  color: #999;
+  padding: 2px 8px;
 }
